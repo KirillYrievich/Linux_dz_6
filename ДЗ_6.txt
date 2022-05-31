@@ -1,0 +1,52 @@
+Написать скрипт, который удаляет из текстового файла пустые строки и заменяет маленькие символы на большие. 
+Воспьзуйтесь tr или SED.
+
+user@ubuntugb~$ mkdir dz_6
+user@ubuntugb~$ cd dz_6
+user@ubuntugb~/dz_6$ nano text.txt
+user@ubuntugb~/dz_6$ cat text.txt
+hi linux hi wirld hi dz_6
+
+hello linux
+
+hello world
+
+hello dz_6
+
+
+
+
+end
+user@ubuntugb~/dz_6$ nano script.sh
+user@ubuntugb~/dz_6$ sudo chmod +x script.sh
+user@ubuntugb~/dz_6$ ./script.sh
+HI LINUX HI WORLD HI DZ_6
+HELLO LINUX
+HELLO WORLD
+HELLO DZ_6
+END
+user@ubuntugb~/dz_6$ 
+
+
+
+
+
+2. Создать однострочный скрипт, который создаст директории для нескольких годов (2010–2017), 
+в них — поддиректории для месяцев (от 01 до 12), и в каждый из них запишет несколько файлов с произвольными записями. 
+Например, 001.txt, содержащий текст «Файл 001», 002.txt с текстом «Файл 002» и т. д.
+
+user@ubuntugb~/dz_6$ mkdir -p tmp/201{0..7}/{01..12} && for year in {2010..2017}; do for month in {01..12}; do for file_number in {001..003}; do echo "Файл "$file_number > ~/tmp/$year/$month/$file_number.txt; done; done; done
+
+
+4. Используя grep, проанализировать файл /var/log/syslog, отобрав события на своё усмотрение.
+
+user@ubuntugb~/dz_6$ grep '^May  09' /var/log/syslog
+
+не выводит результат, не пойму почему, в интернете ничего не нашёл, прилогаю скриншот
+
+
+
+5. Создать разовое задание на перезагрузку операционной системы, используя at.
+
+user@ubuntugb~/dz_6$ echo '/usr/sbin/reboot -r now' | at 10:00 AM tomorrow
+user@ubuntugb~/dz_6$ 
